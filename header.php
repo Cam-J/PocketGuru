@@ -57,6 +57,7 @@ session_start();
       <div class="list-group list-group-flush">
 
       <?php
+
       // Display users name via session data when they are logged in
       if(isset($_SESSION['userId']))
       {
@@ -66,12 +67,15 @@ session_start();
           ?>
           <a href="./index.php" class="list-group-item list-group-item-action bg-light" style="color: black; ">Home Page</a>
           <a href="./logout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Logout</output></a>
-          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">The Scene</a>
+          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
+          <a href="./products.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Store</a>
           <a href="./touchGallery.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Gallery</a>
-          <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Update details</a>
+          <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Account</a>
           <a href="./admin_userControl.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Moderate Users</a>
           <a href="./privacy_policy.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Privacy Policy</a>
           <?php
+          include("./basket_display.php");
+
         }
         elseif ($_SESSION['userRole'] == "suspended")
         {
@@ -79,9 +83,10 @@ session_start();
           ?>
           <a href="./index.php" class="list-group-item list-group-item-action bg-light" style="color: black; ">Home Page</a>
           <a href="./logout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Logout</output></a>
-          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">The Scene</a>
+          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
+          <a href="./products.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Store</a>
           <a href="./touchGallery.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Gallery</a>
-          <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Update details</a>
+          <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Account</a>
           <a href="./privacy_policy.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Privacy Policy</a>
           <?php
         }
@@ -91,11 +96,13 @@ session_start();
           ?>
           <a href="./index.php" class="list-group-item list-group-item-action bg-light" style="color: black; ">Home Page</a>
           <a href="./logout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Logout</output></a>
-          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">The Scene</a>
+          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
+          <a href="./products.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Store</a>
           <a href="./touchGallery.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Gallery</a>
-          <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Update details</a>
+          <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Account</a>
           <a href="./privacy_policy.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Privacy Policy</a>
           <?php
+          include("./basket_display.php");
         }
       }
       else
@@ -110,6 +117,7 @@ session_start();
         <a href="./privacy_policy.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Privacy Policy</a>
         <?php    
       }
+include("./close_db.php");
 		  ?>
       </div>
     </div>

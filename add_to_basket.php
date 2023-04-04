@@ -1,31 +1,19 @@
 <?php
 include("./connect_db.php");
+session_start();
 
-// Get productId from the js request
-$product_id = $_POST['product_id'];
-// Get the userId from the session
-$userId = $_SESSION['userId'];
+// Retrieve the product ID from the POST data
+$productId = $_POST['productId'];
+$quantity = $_POST['quantity'];
 
-// Check if the product is already in the basket
-$stmt = $db->prepare("select * from basket where productId = :productId");
-$stmt->bindParam(':product_id', $product_id);
-$stmt->execute();
-$basket_item = $stmt->fetch(PDO::FETCH_ASSOC);
+// Add the product ID to the basket session variable
+$_SESSION['basket'][$productId] = $quantity;
 
-if ($basket_item) {
-    // Increment the quantity of the existing basket item
-    $stmt = $dbh->prepare("update basket set quantity = quantity + 1 where product_id = :product_id");
-    $stmt->bindParam(":product_id", $product_id);
-    $stmt->execute();
-} else {
-    // Add a new basket item
-    $stmt = $dbh->prepare("insert into basket (product_id, quantity, usserId) VALUES (:product_id, 1, :userId)");
-    $stmt->bindParam(":product_id", $product_id);
-    $stmt->bindParam(":userId", $userId)
-    $stmt->execute();
-}
 
-echo 'Product added to basket.';
+// Redirect back to the products page
+header('Location: products.php');
+exit();
 
 include("./close_db.php");
 ?>
+
