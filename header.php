@@ -34,7 +34,7 @@ session_start();
                   });
 	</script>
 
-  <title>the Local Theatre Company</title>
+  <title>The Pocket Guru</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@ session_start();
 		<div class="row">
 		  <div class="col-md-12">
 
-			<img class="img-fluid float-center img-responsive" src="./images/header.jpg" alt="the Local Theatre Company header image, a view of the stage" width="100%"/>
+			<img class="img-fluid img-responsive" src="./images/HeaderImg.jpg" alt="Mind, Body and Soul" width="100%"/>
 
 		  </div> <!-- col -->
 		</div> <!-- row -->
@@ -188,4 +188,4 @@ session_start();
       }
       ?>  
       <div class="container-fluid">
-        <h1 style="text-align: center; color: darkred;">the Local Theatre Company</h1>
+        <h1 style="text-align: center; color: darkred;">The Pocket Guru</h1>
