@@ -10,7 +10,7 @@ $password = sha1($password);
 
 // Create sql statement to query database for users
 // Prepare the sql statement
-$stmt = $db->prepare("select * from users where username = :a and encrypted_pass = :b ");
+$stmt = $db->prepare("select * from users where username = :a and password = :b ");
 
 // Execute sql statement
 $stmt->execute(array(
@@ -24,7 +24,7 @@ if ($stmt->rowCount() == 1)
     // All details of the returned users information is returned
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     // The password is then checked that the input password is indeed correct after encryption
-    if ($password = $user["encrypted_pass"])
+    if ($password = $user["password"])
     {
         // Login is succesful
         // Create session data of the users name and their role

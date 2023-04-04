@@ -136,8 +136,8 @@ window.addEventListener('load', function(){
 
 <body>
 <!-- Document content contained inside the body element -->
-<p style="text-align: center;">Theatre Company Gallery</p>
-<p style="text-align: center;">Find below some images taken from our Theatre as well as a number of perforamnces we will be showing.</p>
+<p style="text-align: center;">Gallery</p>
+<p style="text-align: center;">All Images related to The Pocket Guru</p>
 
 <?php
 

@@ -1,34 +1,33 @@
 <?php
 include("./header.php");
 include("./connect_db.php");
+?>
 
-// PAGE PRODUCT LIMIT CONTROL
-// Count the total number of products
-$check_products = $db->query("select count(*) as total from product");
-$count_products = $check_products->fetch(PDO::FETCH_ASSOC);
-$total_products = $count_products['total'];
+<script>
+// Add event listener to "add to basket" buttons
+document.querySelectorAll('.add_to_basket').forEach(button => {
+    button.addEventListener('click', () => {
+        // 
+        const productId = button.dataset.productId;
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'add-to-basket.php');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+            } else {
+                console.error(xhr.statusText);
+            }
+        };
+        xhr.onerror = () => {
+            console.error(xhr.statusText);
+        };
+        xhr.send(`product_id=${productId}`);
+    });
+});
+</script>
 
-// products displayed on each page 
-$products_per_page = 10;
-// ceil function to round up to the neearest whole int, so I don't display random numbers of products per page.
-$total_pages = ceil($total_products / $products_per_page);
-
-// Get the current page number from the query string, defaults as page 1
-$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-
-// Calculate the limit and offset for the query
-$limit = $products_per_page;
-$offset = ($current_page - 1) * $products_per_page;
-
-// Retrieve the products for the current page : https://www.sqltutorial.org/sql-limit/
-$product_query = $db->prepare("select * from product LIMIT :limit OFFSET :offset");
-$product_query->bindParam(':limit', $limit, PDO::PARAM_INT);
-$product_query->bindParam(':offset', $offset, PDO::PARAM_INT);
-$product_query->execute();
-// !!!!!!!!!!!!!!!!!!
-
-
-
+<?php
 // Display products for order.
 // Prepare a query to select all information from the products table
 $get_products = $db->query("select * from product");
@@ -37,7 +36,8 @@ $get_products = $db->query("select * from product");
 $products = $get_products->fetchAll(PDO::FETCH_ASSOC);
 
 // Display the products on the storefront page for each product row
-foreach ($products as $product) {
+foreach ($products as $product)
+{
     ?>
     <div class="products">
     <?php
@@ -51,20 +51,13 @@ foreach ($products as $product) {
     echo "</div>";
     echo '<form action="add_basket.php" method="post">';
     echo '<input type="hidden" name="product_id" value="' . $product['productId'] . '">';
-    echo '<button type="submit">Add to Basket</button>';
+    echo '<button class="add_to_basket" type="submit">Add to Basket</button>';
     echo '</form>';
     echo "</div>";
 }
 
 // links to allow the user to navigate the pages:  https://codeshack.io/how-to-create-pagination-php-mysql/
-echo '<div>';
-if ($current_page > 1) {
-  echo '<a href="products.php?page=' . ($current_page - 1) . '">Previous</a> ';
-}
-if ($product_query->rowCount() == $products_per_page) {
-  echo '<a href="products.php?page=' . ($current_page + 1) . '">Next</a>';
-}
-echo '</div>';
+
 
 include("./footer.php");
 include("./close_db.php");

@@ -8,7 +8,7 @@ include("./header.php");
 	<p id="policy_notice">The policy:<br />
 	This privacy policy notice is served by 
 	'The eCommerce Webstore' under the website; 
-	<a href="http://localhost/multi-responsive">http://localhost/multi-responsive</a>. 
+	<a href="http://localhost/multi-responsive">http://localhost/PocketGuru</a>. 
 	The purpose of this policy is to explain to you how we control, process, 
 	handle and protect your personal 
 	information through the business and while you browse or use this website. 

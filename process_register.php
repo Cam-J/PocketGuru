@@ -18,10 +18,10 @@ if ($password == $confirm_password)
 
     // Before inserting in to the database, we need to check that the input details don't already exists within the database to avoid duplicate data
     // Prepare select statement
-    $does_user_exist = $db->prepare("select username, encrypted_pass from users where 
+    $does_user_exist = $db->prepare("select username, password from users where 
     username = :a
     or
-    encrypted_pass = :b");
+    password = :b");
 
     // Execute array of data
     $does_user_exist->execute(array(
@@ -50,7 +50,7 @@ if ($password == $confirm_password)
     {
 
         // Prepare insert statement
-        $stmt = $db->prepare("insert into users (username, firstName, lastName, address1, address2, postCode, encrypted_pass) VALUES (:a, :b, :c, :d, :e, :f, :g) ");
+        $stmt = $db->prepare("insert into users (username, firstName, lastName, address1, address2, postCode, password) VALUES (:a, :b, :c, :d, :e, :f, :g) ");
 
         // Execute the statement
         $stmt->execute(array(
