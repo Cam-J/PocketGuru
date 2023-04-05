@@ -3,40 +3,63 @@ include("./connect_db.php");
 
 // Basket for  display
 
-// Check if the basket exists
-if (!isset($_SESSION['basket']))
-{
-  // If it doesn't exist, create it as an empty array
+// Check if exists
+if (!isset($_SESSION['basket'])) {
   $_SESSION['basket'] = array();
 }
 
-$productIds = $_SESSION['basket'];
+// Empty array for the basket
+$basket_items = array();
+// Total price variable set at 0
+$total_price = 0;
+
+// For each item in the basket as productId and it's relevant quantity select all from database and display as matches
+foreach ($_SESSION['basket'] as $productId => $quantity)
+{
+  $stmt = $db->prepare("select * from product where productId = :productId");
+  // Bind parameter to $productId variable
+  $stmt->bindParam(':productId', $productId);
+  $stmt->execute();
+  // Gather all rows in an array
+  $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  // Get price of items times the chosen quantity
+  $price = $product['productPrice'] * $quantity;
 
 
-if (!empty($productIds)) {
-  $stmt = $db->query("select * from product where productId IN (" . implode(",", $productIds) . ")");
-  $totalPrice = 0;
+  $basket_items[] = array('productId' => $productId, 'name' => $product['productName'], 'quantity' => $quantity, 'price' => $price);
 
-  echo "<table>";
-  echo "<tr><th>Name</th><th>Price</th></tr>";
-
-  while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-  {
-    $productId = $row['productId'];
-    $product_name = $row['productName'];
-    $product_price = $row['productPrice'];
-    $totalPrice += $product_price;
-
-    echo "<tr>";
-    echo "<td>" . $product_name . "</td>";
-    echo "<td>" . $product_price . "</td>";
-    echo "</tr>";
-  }
-
-  echo "<tr><td>Total</td><td>" . $totalPrice . "</td></tr>";
-  echo "</table>";
-  echo "<a href='./checkout.php' class='list-group-item list-group-item-action bg-light' style='color: black;'>Buy Now</a>";
+  $total_price += $price;
 }
+?>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($basket_items as $item): ?>
+      <tr>
+        <td><?= $item['name'] ?></td>
+        <td><?= $item['quantity'] ?></td>
+        <td><?= $item['price'] ?></td>
+      </tr>
+    <?php endforeach ?>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">Total price:</td>
+      <td><?= $total_price ?></td>
+    </tr>
+  </tfoot>
+</table>
+<a href="./checkout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Order Now</a>
+
+<?php
 
 include("./close_db.php");
 ?>
+

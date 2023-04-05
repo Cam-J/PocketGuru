@@ -20,7 +20,8 @@ if ($products->rowCount() > 0)
     if (isset($_SESSION['username']))
     {
         echo "<form action='add_to_basket.php' method='post'>";
-        echo "<input id='quantity' name='quantity' value= >";
+        echo "<input style='width: 10%;' id='quantity' name='quantity' value='1'>";
+        echo " ";
         echo "<input type='hidden' name='productId' value=" . $row["productId"] . ">";
         echo "<button type='submit'>Add to Basket</button>";
         echo "</form>";
@@ -28,6 +29,5 @@ if ($products->rowCount() > 0)
     echo "</div>";
   }
 }
-
 include("./close_db.php");
 ?>

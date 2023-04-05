@@ -1,19 +1,24 @@
 <?php
 include("./connect_db.php");
+// Start session for basket
 session_start();
 
-// Retrieve the product ID from the POST data
+// Check if basket exists, if it doesn't create a basket
+if (!isset($_SESSION['basket'])) {
+  $_SESSION['basket'] = array();
+}
+
+// Get the productId and quantity ordered
 $productId = $_POST['productId'];
 $quantity = $_POST['quantity'];
 
-// Add the product ID to the basket session variable
-$_SESSION['basket'][$productId] = $quantity;
+if (isset($_SESSION['basket'][$productId])) {
+  $_SESSION['basket'][$productId] += $quantity;
+} else {
+  $_SESSION['basket'][$productId] = $quantity;
+}
 
-
-// Redirect back to the products page
-header('Location: products.php');
-exit();
-
+header("location: ./products.php");
 include("./close_db.php");
 ?>
 

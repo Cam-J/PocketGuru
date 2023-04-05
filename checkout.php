@@ -1,33 +1,37 @@
 <?php
 include("./header.php");
 include("./connect_db.php");
+?>
+<form action="./process_order.php" method="POST">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 300px;">Name</th>
+        <th style="width: 300px;">Quantity</th>
+        <th style="width: 300px;">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($basket_items as $item): ?>
+        <tr>
+          <td><?= $item['name'] ?></td>
+          <td><?= $item['quantity'] ?></td>
+          <td><?= $item['price'] ?></td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total price:</td>
+        <td><?= $total_price ?></td>
+      </tr>
+    </tfoot>
+  </table>
 
+<button class="list-group-item list-group-item-action bg-light" style="color: black; width: 175px;" type='submit'>Place Order</button>
+</form>
 
-if (!empty($productIds)) {
-    $stmt = $db->query("select * from product where productId IN (" . implode(",", $productIds) . ")");
-    $totalPrice = 0;
-  
-    echo "<table>";
-    echo "<tr><th>Name</th><th>Price</th></tr>";
-  
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    {
-      $productId = $row['productId'];
-      $product_name = $row['productName'];
-      $product_price = $row['productPrice'];
-      $totalPrice += $product_price;
-  
-      echo "<tr>";
-      echo "<td>" . $product_name . "</td>";
-      echo "<td>" . $product_price . "</td>";
-      echo "</tr>";
-    }
-  
-    echo "<tr><td>Total</td><td>" . $totalPrice . "</td></tr>";
-    echo "</table>";
-    echo "<a href='./checkout.php' class='list-group-item list-group-item-action bg-light' style='color: black;'>Order Now</a>";
-  }
-
+<?php
 include("./close_db.php");
 include("./footer.php");
 ?>
