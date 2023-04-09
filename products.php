@@ -3,7 +3,7 @@ include("./header.php");
 include("./connect_db.php");
 ?>
 
-<h2 style="text-align: center;">Product Storefront</h2>
+<h2 style="text-align: center;">Products</h2>
 
 <?php
 

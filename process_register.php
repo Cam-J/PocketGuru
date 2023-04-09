@@ -8,6 +8,7 @@ $lastname = $_POST['lastName'];
 $address1 = $_POST['address1'];
 $address2 = $_POST['address2'];
 $postcode = $_POST['postCode'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 

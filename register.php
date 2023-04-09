@@ -48,6 +48,11 @@ include("./header.php");
             </div>
 
             <div class="form-group">
+                <label class="form-control-label" for="email" style="font-weight: bold;">Email:</label>
+                <input class="form-control" style="width: 300px;" type="text" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
                 <label class="form-control-label" for="password" style="font-weight: bold;">Password:</label>
                 <input class="form-control" type="password" style="width: 300px;" name="password" id="password" placeholder=""
                 required>

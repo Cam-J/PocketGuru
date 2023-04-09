@@ -8,6 +8,7 @@ $lastname = $_REQUEST["lastname"];
 $address1 = $_REQUEST["address1"];
 $address2 = $_REQUEST["address2"];
 $postcode = $_REQUEST["postcode"];
+$email = $_REQUEST["email"];
 $password = $_REQUEST["password"];
 $confirm_password = $_REQUEST["confirm_password"];
 $userId = $_REQUEST["userId"];
@@ -28,8 +29,9 @@ if ($password == $confirm_password)
     lastName = :d,
     address1 = :e,
     address2 = :f,
-    postCode = :g
-    where userId = :h");
+    postCode = :g,
+    email = :h
+    where userId = :j");
 
     //Execute the statement
     $stmt->execute(array(
@@ -40,7 +42,8 @@ if ($password == $confirm_password)
         ":e" => $address1,
         ":f" => $address2,
         ":g" => $postcode,
-        ":h" => $userId
+        ":h" => $email,
+        ":j" => $userId
     )) ;
     include("./index.php");
 }

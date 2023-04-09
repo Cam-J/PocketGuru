@@ -31,6 +31,9 @@ else
 						<!--table headings for each row-->
 						<th style="font-weight: bold;">ID</th>
 						<th style="font-weight: bold;">User</th>
+						<th style="font-weight: bold;">Name</th>
+						<th style="font-weight: bold;">Address</th>
+						<th style="font-weight: bold;">Email</th>
 						<th style="font-weight: bold;">Role</th>
                         <th style="font-weight: bold; width: 500px;">New Role</th>
 					</tr>
@@ -53,6 +56,9 @@ else
 						echo "<tr>"; 
 						echo "<td>$a_row[userId]</td>";							
                         echo "<td>$a_row[username]</td>";
+						echo "<td>$a_row[firstName] $a_row[lastName]</td>";
+						echo "<td>$a_row[address1] $a_row[address2] $a_row[postCode]</td>";
+						echo "<td>$a_row[email]</td>";
 						echo "<td>$a_row[userRole]</td>";?>
                         <!-- Table exists to allow admins to select a new role for a user and update it to the database -->
                         <td>
