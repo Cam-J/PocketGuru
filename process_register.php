@@ -19,15 +19,12 @@ if ($password == $confirm_password)
 
     // Before inserting in to the database, we need to check that the input details don't already exists within the database to avoid duplicate data
     // Prepare select statement
-    $does_user_exist = $db->prepare("select username, password from users where 
-    username = :a
-    or
-    password = :b");
+    $does_user_exist = $db->prepare("select username from users where 
+    username = :a");
 
     // Execute array of data
     $does_user_exist->execute(array(
-        ":a" => $username,
-        ":b" => $password
+        ":a" => $username
     ));
 
     // If the query returns a row that matches out put to user that this username is taken otherwise insert data to database.
@@ -51,7 +48,7 @@ if ($password == $confirm_password)
     {
 
         // Prepare insert statement
-        $stmt = $db->prepare("insert into users (username, firstName, lastName, address1, address2, postCode, password) VALUES (:a, :b, :c, :d, :e, :f, :g) ");
+        $stmt = $db->prepare("insert into users (username, firstName, lastName, address1, address2, postCode, email, password) VALUES (:a, :b, :c, :d, :e, :f, :g, :h) ");
 
         // Execute the statement
         $stmt->execute(array(
@@ -61,7 +58,8 @@ if ($password == $confirm_password)
             ":d" => $address1,
             ":e" => $address2,
             ":f" => $postcode,
-            ":g" => $password
+            ":g" => $email,
+            ":h" => $password
         ));
 
         include("./close_db.php");

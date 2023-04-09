@@ -3,7 +3,7 @@
 		
 	  </div>
 
-  <p style="text-align: center; color: Maroon;"><i><br/><br /><sup>&copy;</sup>the Local Theatre Company <?php echo date("Y");?></i></p>
+  <p style="text-align: center; color: black;"><i><br/><br /><sup>&copy;The Pocket Guru</sup><?php echo date("Y");?></i></p>
     </div>
     <!-- /#page-content-wrapper -->
 

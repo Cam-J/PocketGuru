@@ -35,7 +35,10 @@ else
 						<th style="font-weight: bold;">Address</th>
 						<th style="font-weight: bold;">Email</th>
 						<th style="font-weight: bold;">Role</th>
-                        <th style="font-weight: bold; width: 500px;">New Role</th>
+                        <th style="font-weight: bold; width: 400px;">New Role</th>
+						<th style="font-weight: bold;">Membership</th>
+                        <th style="font-weight: bold; width: 400px;">Updated Membership</th>
+
 					</tr>
 				</thead>
 
@@ -67,6 +70,19 @@ else
                                     <option value="admin" <?php if($a_row["userRole"]=="admin") echo "selected" ?>>Admin</option>
                                     <option value="user" <?php if($a_row["userRole"]=="user") echo "selected" ?>>User</option>
                                     <option value="suspended" <?php if($a_row["userRole"]=="suspended") echo "selected" ?>>Suspended</option>
+                                </select>                                    
+                                <input type="hidden" name="userId" value="<?php echo $a_row["userId"] ?>">
+                                <input type="submit" value="Update">
+                            </form>
+                        </td>
+						<?php echo "<td>$a_row[membership]</td>";?>
+						<td>
+                            <form action="./admin_process_update_membership.php" method="post">
+                                <select name="membership">
+                                    <option value="Gold" <?php if($a_row["membership"]=="gold") echo "selected" ?>>Gold</option>
+                                    <option value="Silver" <?php if($a_row["membership"]=="silver") echo "selected" ?>>Silver</option>
+                                    <option value="Bronze" <?php if($a_row["membership"]=="bronze") echo "selected" ?>>Bronze</option>
+									<option value="Free" <?php if($a_row["membership"]=="free") echo "selected" ?>>Free</option>
                                 </select>                                    
                                 <input type="hidden" name="userId" value="<?php echo $a_row["userId"] ?>">
                                 <input type="submit" value="Update">

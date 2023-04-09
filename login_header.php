@@ -40,7 +40,7 @@
 		<div class="row">
 		  <div class="col-md-12">
 
-			<img class="img-fluid float-center img-responsive" src="./images/header.jpg" alt="the Local Theatre Company header image, a view of the stage" width="100%"/>
+			<img class="img-fluid img-responsive" src="./images/HeaderImg.jpg" alt="Mind, Body and Soul" style="width: 100%; height: 400px;"/>
 
 		  </div> <!-- col -->
 		</div> <!-- row -->
@@ -105,7 +105,7 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-danger" id="menu-toggle"> Show/Hide Menu </button>
+        <button class="btn btn-info" id="menu-toggle"> Show/Hide Menu </button>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent"
@@ -175,4 +175,4 @@
       }
       ?>  
       <div class="container-fluid">
-        <h1 style="text-align: center; color: darkred;">the Local Theatre Company</h1>
+        <h1 style="text-align: center; color: DarkCyan;">the Pocket Guru</h1>
