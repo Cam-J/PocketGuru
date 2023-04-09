@@ -67,7 +67,7 @@ session_start();
           ?>
           <a href="./index.php" class="list-group-item list-group-item-action bg-light" style="color: black; ">Home Page</a>
           <a href="./logout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Logout</output></a>
-          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
+          <a href="./announce.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
           <a href="./products.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Store</a>
           <a href="./touchGallery.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Gallery</a>
           <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Account</a>
@@ -82,7 +82,7 @@ session_start();
           ?>
           <a href="./index.php" class="list-group-item list-group-item-action bg-light" style="color: black; ">Home Page</a>
           <a href="./logout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Logout</output></a>
-          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
+          <a href="./announce.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
           <a href="./products.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Store</a>
           <a href="./touchGallery.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Gallery</a>
           <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Account</a>
@@ -95,7 +95,7 @@ session_start();
           ?>
           <a href="./index.php" class="list-group-item list-group-item-action bg-light" style="color: black; ">Home Page</a>
           <a href="./logout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Logout</output></a>
-          <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
+          <a href="./announce.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
           <a href="./products.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Store</a>
           <a href="./touchGallery.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Gallery</a>
           <a href="./update_user.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Account</a>
@@ -109,7 +109,7 @@ session_start();
 		    echo "<p class=\"list-group-item list-group-item-action bg-light\" style=\"color: Black; \">Site Menu</p>";
         ?>
         <a href="./index.php" class="list-group-item list-group-item-action bg-light" style="color: black; ">Home Page</a>
-        <a href="./theScene.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
+        <a href="./announce.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Announcements</a>
 		    <a href="./login.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Login</a>
         <a href="./register.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Register</a>
         <a href="./products.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Store</a>

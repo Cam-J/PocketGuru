@@ -8,7 +8,7 @@ include("./connect_db.php");
 
 <?php
 // Prepare select statement
-$stmt = $db->prepare("select * from articles, users
+$stmt = $db->prepare("select * from posts, users
 where articles.userId = users.userId
 order by articleDate DESC");
 
