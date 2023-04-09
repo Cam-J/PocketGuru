@@ -15,8 +15,9 @@ if ($products->rowCount() > 0)
     echo "<h3>" . $row["productName"] . "</h3>";
     echo "<img src='" . $row["productImage"] . "' style='width: 400px; height: 400px'>";
     echo "<p>" . $row["productDesc"] . "</p>";
-    echo "<span>" . $row["productPrice"] . "</span>";
+    echo "<span>" . $row["productPrice"] = "£" . number_format($row["productPrice"], 2) . "</span>";
     echo "</div>";
+    
     if (isset($_SESSION['username']))
     {
         echo "<form action='add_to_basket.php' method='post'>";

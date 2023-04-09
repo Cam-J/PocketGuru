@@ -32,7 +32,9 @@ foreach ($_SESSION['basket'] as $productId => $quantity)
   $total_price += $price;
 }
 ?>
+
 <table>
+  <!-- Table to display the basket contents -->
   <thead>
     <tr>
       <th>Name</th>
@@ -41,18 +43,21 @@ foreach ($_SESSION['basket'] as $productId => $quantity)
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($basket_items as $item): ?>
+    <!-- for each item in the array, display its contents for table header -->
+    <?php 
+    foreach($basket_items as $item): // https://www.w3schools.com/php/php_looping_foreach.asp --> 
+    ?>
       <tr>
         <td><?= $item['name'] ?></td>
         <td><?= $item['quantity'] ?></td>
-        <td><?= $item['price'] ?></td>
+        <td><?= $price = "£" . number_format($item['price'], 2); ?></td>
       </tr>
     <?php endforeach ?>
   </tbody>
   <tfoot>
     <tr>
       <td colspan="2">Total price:</td>
-      <td><?= $total_price ?></td>
+      <td><?= $total_price = "£" . number_format($total_price, 2); ?></td>
     </tr>
   </tfoot>
 </table>
