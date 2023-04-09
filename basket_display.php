@@ -62,6 +62,21 @@ foreach ($_SESSION['basket'] as $productId => $quantity)
   </tfoot>
 </table>
 <a href="./checkout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Order Now</a>
+<button class="remove-order list-group-item list-group-item-action bg-light" type='submit'>Delete Basket</button>
+<!-- if user wants to delete their basket -->
+<!-- javascript to handle -->
+<script>
+  // Find the button
+  const removeOrderButton = document.querySelector('.remove-order');
+  // When button is pressed do ->
+  removeOrderButton.addEventListener('click', function() {
+    // relocate to remove_basket.php and unset the basket
+    window.location.href = 'remove_basket.php';
+    alert('Basket has been removed');
+  });
+</script>
+
+
 
 <?php
 
