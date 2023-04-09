@@ -23,7 +23,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     <form action="./admin_post_options.php" method="POST">
 
     <?php
-        echo "<h3 name='postId' >Post ID: " . $row['postId'] . "</h3>";
+        echo "<h3 name='postId' >Post ID: " . $row['postId'] . "<br>Membership Level: " . $row['memberView'] . "</h3>";
         echo "<div style='border: 1px solid black; padding: 10px; margin-bottom: 20px;'>";
         echo "<div style='border: 1px solid black; padding: 5px; margin-bottom: 10px;'>";
         echo "<h4 id='title'><u>" . $row['title'] . "</u><h4>";

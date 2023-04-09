@@ -12,9 +12,12 @@ if (!isset($_SESSION['basket'])) {
 $productId = $_POST['productId'];
 $quantity = $_POST['quantity'];
 
+// add product to basket
 if (isset($_SESSION['basket'][$productId])) {
+  // if product exists increment by the quantity
   $_SESSION['basket'][$productId] += $quantity;
 } else {
+  // if product does not exist add product and chosen quantity
   $_SESSION['basket'][$productId] = $quantity;
 }
 

@@ -29,6 +29,7 @@ include("./connect_db.php")
       }
   echo '</select>';
   
+  // Set which members can view the post
   $stmt2 = $db->query("select posts.memberView from posts");
   ?>
   <label for="membership">Member Availability:</label>

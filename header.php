@@ -164,7 +164,7 @@ include("./close_db.php");
                 <a class="nav-link" style="color: black;" href="./index.php">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" style="color: black;" href="./logout.php">Logout</a>
+                <a class="nav-link" style="color: black;" href="./user_membership.php">Membership</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" style="color: black;" href="./privacy_policy.php">Privacy Policy</a>
