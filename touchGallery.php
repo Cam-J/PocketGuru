@@ -157,11 +157,10 @@ window.addEventListener('load', function(){
 	?>
 		<div id="swipegallery" class="touchgallery">
 		<ul>
-			<li><img src=".\images\Theatre1.jpg" alt="Theatre from the outter circle" height="500"/></li>
-			<li><img src=".\images\Theatre2.jpg" alt="performance of one of our performances"/></li>
-			<li><img src=".\images\Theatre3.jpg" alt="Theatre during a packed night"/></li>
-			<li><img src=".\images\Theatre4.jpg" alt="Poster from the performance of Les Miserables"/></li>
-			<li><img src=".\images\Theatre5.jpg" alt="Poster from the performance of Macbeth"/></li>
+			<li><img src=".\images\BenefitsOfMassage.jpg" alt="Benefits of deep tissue massage" height="500"/></li>
+			<li><img src=".\images\Luna.jpg" alt="Luna"/></li>
+			<li><img src=".\images\QiGong.jpg" alt="Qi Gong"/></li>
+			<li><img src=".\images\NowandZen.jpg" alt="Image from Now and Zen"/></li>
 		</ul>
 		</div>
 	<?php
@@ -169,15 +168,14 @@ window.addEventListener('load', function(){
 	else     // If a mouse pointer then the images are just all displayed
 	{
 	?>
-		<img src=".\images\Theatre1.jpg" alt="Theatre from the outter circle"width="800" />
+		<img src=".\images\BenefitsOfMassage.jpg" alt="Theatre from the outter circle"width="800" />
         <br>
-        <img src=".\images\Theatre2.jpg" alt="performance of one of our performances"width="800" />
+        <img src=".\images\Luna.jpg" alt="performance of one of our performances"width="800" />
         <br>
-        <img src=".\images\Theatre3.jpg" alt="Theatre during a packed night"width="800" />
+        <img src=".\images\QiGong.jpg" alt="Theatre during a packed night"width="800" />
         <br>
-        <img src=".\images\Theatre4.jpg" alt="Poster from the performance of Les Miserables"width="800" />
+        <img src=".\images\NowandZen.jpg" alt="Poster from the performance of Les Miserables"width="800" />
         <br>
-        <img src=".\images\Theatre5.jpg" alt="Poster from the performance of Macbeth"width="300" height="500"/>
 	<?php
 	}
 ?>

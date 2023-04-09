@@ -39,6 +39,7 @@ if ($stmt->rowCount() == 1)
         $_SESSION["address2"] = $user["address2"];
         $_SESSION["postcode"] = $user["postCode"];
         $_SESSION["email"] = $user["email"];
+        $_SESSION["membership"] = $user["membership"];
         include("./login_header.php");
         ?>
         <!--page content-->

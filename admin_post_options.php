@@ -2,18 +2,18 @@
 include("./connect_db.php");
 include("./header.php");
 
-$articleId = $_POST['articleId'];
+$postId = $_POST['postId'];
 
 // EDIT POSTS OPTION
 if(isset($_POST['update']) == TRUE)
 {
-    $articleId = $_POST['articleId'];
+    $postId = $_POST['postId'];
 
     // Prepare select statement
-    $stmt = $db->prepare("select * from articles, users
-                        where articleId = :articleId");
-    // Bind articleId to passed $articleId variable                    
-    $stmt->bindParam(":articleId", $articleId);
+    $stmt = $db->prepare("select * from posts, users
+                        where postId = :postId");
+    // Bind postId to passed $postId variable                    
+    $stmt->bindParam(":postId", $postId);
 
     // Execute the statement
     $stmt->execute();
@@ -21,14 +21,14 @@ if(isset($_POST['update']) == TRUE)
     // get the row
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $title = $row['articleName'];
-    $content = $row['articleData'];
+    $title = $row['title'];
+    $content = $row['content'];
 
     ?>
     
     <!-- Form to display the content of a post and allow it to be eddited upon clicking update process is passed to the server side script -->
     <form action="./admin_process_update_post.php" method="POST">
-        <input type="hidden" name="articleId" value="<?php echo $articleId; ?>">
+        <input type="hidden" name="postId" value="<?php echo $postId; ?>">
         <label for="title">Title:</label>
         <input type="text" name="title" value="<?php echo $title; ?>">
         <br>
@@ -43,13 +43,13 @@ if(isset($_POST['update']) == TRUE)
 // DELETE POST OPTION 
 if(isset($_POST['delete']) == TRUE)
 {
-    echo "Article ID: " . $articleId;
+    echo "Article ID: " . $postId;
     echo "<br>Are you sure you want to delete this post?";
     echo "<br>If you wish to continue select 'delete', if you wish to return to the previous page click <a href:./admin_manage_posts.php>here<a/><br>";
     ?>
 
     <form action="./admin_process_delete_post.php" method="POST">
-        <input type="hidden" name="articleId" value="<?php echo $articleId; ?>">
+        <input type="hidden" name="postId" value="<?php echo $postId; ?>">
         <br>
         <input type="submit" value="delete">
     </form>
@@ -59,26 +59,26 @@ if(isset($_POST['delete']) == TRUE)
 // VIEW COMMENTS OPTION
 if(isset($_POST['comments']) == TRUE)
 {
-    echo "Article ID: " . $articleId . " comments";
+    echo "Post ID: " . $postId . " comments";
     
     // Display the comments for each article
-    $comments = $db->prepare("select * from comments, users where articleId = :articleId and users.userId = comments.userId 
+    $comments = $db->prepare("select * from comments, users where postId = :postId and users.userId = comments.userId 
     order by commentDate ASC");
 
-    // use the bindPara() function to bind :articleId in our sql statement to the variable held within our previous statement $row
-    $comments->bindParam(':articleId', $articleId);
+    // use the bindPara() function to bind :postId in our sql statement to the variable held within our previous statement $row
+    $comments->bindParam(':postId', $postId);
 
     // execute the comments statement
     $comments->execute();
 
-    // Do the same type of loop that displays articles for comments
+    // Do the same type of loop that displays posts for comments
     while ($commentRow = $comments->fetch(PDO::FETCH_ASSOC))
     {
         $commentId = $commentRow['commentId'];
     ?>
         <!-- Form to display the content of a post and allow it to be eddited upon clicking update process is passed to the server side script -->
         <form action="./admin_process_delete_comment.php" method="POST">
-        <input type="hidden" name="articleId" value="<?php echo $articleId; ?>">
+        <input type="hidden" name="postId" value="<?php echo $postId; ?>">
         <input type="hidden" name="commentId" value="<?php echo $commentId; ?>">
             <div style='border: 1px solid black; padding: 10px; margin-bottom: 20px;'>
                 <p type="text" name="commentId" value=>Comment ID: <?php echo $commentId;?></p>

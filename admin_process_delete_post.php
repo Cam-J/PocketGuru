@@ -1,12 +1,12 @@
 <?php
 include("./connect_db.php");
 
-$articleId = $_POST['articleId'];
+$postId = $_POST['postId'];
 
 // prepare deletion
-$stmt = $db->prepare("delete from articles where articleId = :articleId");
-// bind parameter of articleId
-$stmt->bindParam(":articleId", $articleId);
+$stmt = $db->prepare("delete from POSTS where postId = :postId");
+// bind parameter of postId
+$stmt->bindParam(":postId", $postId);
 // execute the statement
 $stmt->execute();
 // exit script

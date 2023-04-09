@@ -34,16 +34,16 @@ session_start();
                   });
 	</script>
 
-  <title>the Local Theatre Company</title>
+  <title>the Pocket Admin Space</title>
 </head>
 
 <body>
 
-	<div class="container-fluid no-padding"> <!-- containers are 1200px wide with default 15px padding -->
+	<div class="text-center"> <!-- containers are 1200px wide with default 15px padding -->
 		<div class="row">
 		  <div class="col-md-12">
 
-			<img class="img-fluid float-center img-responsive" src="./images/header.jpg" alt="the Local Theatre Company header image, a view of the stage" width="100%"/>
+			<img class="img-fluid float-center img-responsive" src="./images/admin.jpg" alt="Admin page" style="width: 50%; height: 400px;"/>
 
 		  </div> <!-- col -->
 		</div> <!-- row -->
@@ -66,6 +66,7 @@ session_start();
         <a href="./logout.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Logout</output></a>
         <a href="./admin_article.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Add Post</a>
         <a href="./admin_manage_posts.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Manage Posts</a>
+        <a href="./admin_uploadMedia.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Upload Media</a>
         <a href="./admin_userControl.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Moderate Users</a>
         <?php
       }
@@ -81,7 +82,7 @@ session_start();
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-danger" id="menu-toggle"> Show/Hide Menu </button>
+        <button class="btn btn-info" id="menu-toggle"> Show/Hide Menu </button>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent"
@@ -113,4 +114,4 @@ session_start();
     }
         ?>
     <div class="container-fluid">
-        <h1 style="text-align: center; color: darkred;">the Local Theatre Company</h1>
+    <h1 style="text-align: center; color: DarkCyan;"><u>The Pocket Guru: Admin View</u></h1>
