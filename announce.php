@@ -24,7 +24,11 @@ if ($_SESSION['membership'] == 'bronze')
     display_bronze();
 }
 
-if (!$_SESSION['membership'] == 'free')
+if ($_SESSION['membership'] == 'free')
+{
+    display_free();
+}
+else if(!isset($_SESSION['membership']))
 {
     display_free();
 }

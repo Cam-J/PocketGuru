@@ -94,6 +94,7 @@ else
                     }
 				?>
     		</table>
+
         </div> <!--column-->
 	</div> <!--row container-->
 	<?php

@@ -68,6 +68,7 @@ session_start();
         <a href="./admin_manage_posts.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Manage Posts</a>
         <a href="./admin_uploadMedia.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Upload Media</a>
         <a href="./admin_userControl.php" class="list-group-item list-group-item-action bg-light" style="color: black;">Moderate Users</a>
+        <a href="./admin_viewOrders.php" class="list-group-item list-group-item-action bg-light" style="color: black;">View Orders<a>
         <?php
       }
 		?>

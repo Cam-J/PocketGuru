@@ -179,6 +179,8 @@ function display_bronze()
 function display_free()
 {
     include("./connect_db.php");
+    if($_SESSION['membership'] == 'free')
+    {
         $stmt = $db->prepare("select * from posts, users
         where posts.userId = users.userId
         and posts.memberView = 'free'
@@ -219,3 +221,4 @@ function display_free()
     }
     }
     exit;
+}
