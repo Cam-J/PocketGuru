@@ -46,7 +46,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         <input type="hidden" name="postId" id="postId" value="<?php echo $row['postId'];?>">
         <button class="btn-danger" name="update" type="submit">Update Post</button>
         <button class="btn-danger" name="delete" type="submit">Delete Post</button>
-        <button class="btn-danger" name="comments" type="submit">View Comments</button>
         </div>
 
     </form> <!--form-->

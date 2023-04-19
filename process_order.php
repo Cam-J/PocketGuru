@@ -31,7 +31,6 @@ if ($orderDetails->execute())
 {
     // sql executed successfully, so delete the basket
     unset($_SESSION['basket']);
-    $formatprice = "£" . number_format($total_price, 2);
     ?>
     <!-- display thank you message to user for their order -->
     <!DOCTYPE html>
@@ -44,7 +43,7 @@ if ($orderDetails->execute())
         <p>Your order has been successfully placed. Here are the details:</p>
         <ul>
         <li>Order Number: <?php echo $orderId ?></li>
-        <li>Order Total: <?php echo $formatprice ?></li>
+        <li>Order Total: <?php echo $total_price ?></li>
         </ul>
         <p>A confirmation email has been sent to your email address.</p>
     </body>

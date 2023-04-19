@@ -38,22 +38,6 @@ if(isset($_POST['update']) == TRUE)
     
     <?php
 }
-// DELETE POST OPTION 
-if(isset($_POST['delete']) == TRUE)
-{
-    echo "Post ID: " . $postId;
-    echo "<br>Are you sure you want to delete this post?";
-    echo "<br>If you wish to continue select 'delete', if you wish to return to the previous page click <a href:./admin_manage_posts.php>here<a/><br>";
-    ?>
-
-    <form action="./admin_process_delete_post.php" method="POST">
-        <input type="hidden" name="postId" value="<?php echo $postId; ?>">
-        <br>
-        <input type="submit" value="delete">
-    </form>
-    
-    <?php
-}
 include("./footer.php");
 header("location: ./admin_manage_posts.php");
 ?>
