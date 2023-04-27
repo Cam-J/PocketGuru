@@ -148,14 +148,14 @@ include("./close_db.php");
                 <a class="nav-link" style="color: black;" href="./admin_dash.php">Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" style="color: black;" href="./userControl.php">Users</a>
+                <a class="nav-link" style="color: black;" href="./admin_userControl.php">Users</a>
               </li>
             </ul>
           </div>
         </nav>
         <?php
         }
-        else
+        if ($_SESSION['userRole'] == "user")
         {
         ?>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">

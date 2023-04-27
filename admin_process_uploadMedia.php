@@ -41,7 +41,7 @@ if(isset($_POST["submit"])) {
         "userId" => $userId
     ));
 
-    header("./admin_dash.php");
+    header("Location: ./admin_dash.php");
 }
 
 ?>
