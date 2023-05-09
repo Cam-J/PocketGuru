@@ -24,7 +24,7 @@ if ($password == $confirm_password)
     //passwords match prepare statement
     $stmt = $db->prepare("update users set 
     username = :a,
-    encrypted_pass = :b,
+    password = :b,
     firstName = :c,
     lastName = :d,
     address1 = :e,

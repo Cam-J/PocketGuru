@@ -8,6 +8,7 @@ include("./functions.php");
 // If the user is anything else, no access
 if($_SESSION['userRole'] != 'admin')
 {
+	include("./header.php");
     // Session is not set, user required to login/register.
     echo "<h5 style='text-align: center;'><br> Hey there, it looks like you are trying to access something you shouldn't!</h5><br/>";
     echo "<p style='text-align: center;'> If you wish to view the contents of this page then you must be an admin.</p>";
